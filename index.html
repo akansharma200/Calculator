@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css" integrity="sha512-9xKTRVabjVeZmc+GUW8GgSmcREDunMM+Dt/GrzchfN8tkwHizc5RP4Ok/MXFFy5rIjJjzhndFScTceq5e6GvVQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <title>Calculator</title>
+</head>
+<body>
+    <div class="calculator">
+        <div class="screen">
+            <input type="text" id="display" readonly>
+        </div>
+    <div class="allbtns">
+    <button onclick="clearr()" class="btns oper">AC</button>
+    <button onclick="addVal('%')" class="btns oper">%</button>
+    <button class="btns oper" id="delbtn"><i class="fa-regular fa-circle-xmark"></i></button>
+    <button onclick="addVal('/')" class="btns oper">/</button>
+    <button onclick="addVal('7')" class="btns">7</button>
+    <button onclick="addVal('8')" class="btns">8</button>
+    <button onclick="addVal('9')" class="btns">9</button>
+    <button onclick="addVal('*')" class="btns oper">*</button>
+    <button onclick="addVal('4')" class="btns">4</button>
+    <button onclick="addVal('5')" class="btns">5</button>
+    <button onclick="addVal('6')" class="btns">6</button>
+    <button onclick="addVal('+')" class="btns oper">+</button>
+    <button onclick="addVal('1')" class="btns">1</button>
+    <button onclick="addVal('2')" class="btns">2</button>
+    <button onclick="addVal('3')" class="btns">3</button>
+    <button onclick="addVal('-')" class="btns oper">-</button>
+    <button onclick="addVal('0')" class="btns">0</button>
+    <button onclick="addVal('00')" class="btns">00</button>
+    <button onclick="calculate()" class="btns oper">=</button>
+    <button onclick="addVal('.')" class="btns oper">.</button>
+    </div>
+    </div>
+
+
+
+    <script>
+
+        let display = document.getElementById('display');
+        let cvalue;
+
+        let clearr = function(){
+            display.value = '';
+        }
+
+        let addVal = (val) => {
+            display.value += val;
+            cvalue = display.value;
+           }
+           
+       
+        let calculate = () => {
+            try{
+                let cal = eval(cvalue);
+                display.value = cal;
+            }
+            catch(error){
+               display.value ='Error';
+            }
+            
+        }
+    
+        let delbtn = document.getElementById('delbtn');
+        delbtn.addEventListener('click',function(){
+            let val = display.value.length;
+            if(display.value.length > 0){
+                display.value = display.value.slice(0,-1);
+            }
+        })
+
+                   
+    </script>
+</body>
+</html>
