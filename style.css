@@ -13,9 +13,11 @@ body{
 
 .calculator{
     background-color: #000;
-    width: 40vw;
+    min-width: 360px;
     padding: 20px;
     border-radius: 10px;
+    margin: 0 auto;
+    width: 40vw;
 }
 
 .screen{
